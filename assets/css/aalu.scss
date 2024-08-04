@@ -1,0 +1,27 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+$red: rgb(177, 138, 138);
+.main {
+  background-color: aliceblue;
+  padding: 1rem;
+  margin: 1rem;
+  .sub {
+    background-color: $red;
+    padding: 1rem;
+    a {
+      background-color: bisque;
+      padding: 1rem;
+      display: inline-block;
+      &:hover {
+        background-color: rgb(219, 196, 167);
+      }
+    }
+  }
+  .sub-2 {
+    background-color: aquamarine;
+    padding: 1rem;
+  }
+}

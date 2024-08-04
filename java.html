@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .container {
+        border: 1px solid;
+        padding: 1rem;
+        width: 50%;
+        margin: 1rem auto;
+      }
+      .container form label {
+        font-size: 20px;
+      }
+      .container form input {
+        width: 100%;
+        margin: 10px 0;
+        font-size: 20px;
+      }
+      #show {
+        cursor: pointer;
+      }
+    </style>
+    <link
+      rel="stylesheet"
+      href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.6.0/css/all.min.css"
+      integrity="sha512-Kc323vGBEqzTmouAECnVceyQqyqdsSiqLQISBL29aUW4U/M7pSPA/gEUZQqv1cwx4OnYxTxve5UMg5GT6L4JJg=="
+      crossorigin="anonymous"
+      referrerpolicy="no-referrer"
+    />
+  </head>
+  <body>
+    <div class="container">
+      <form action="" name="myForm" onsubmit="return formValidation()">
+        <label for="name">Name</label>
+        <input type="text" id="name" name="name" />
+        <p id="nmessage"></p>
+
+        <label for="phone">Phone</label>
+        <input type="text" name="phone" id="phone" />
+        <p id="pmessage"></p>
+
+        <label for="email">Email</label>
+        <input type="text" name="email" id="email" />
+        <p id="emessage"></p>
+
+        <label for="password">Password</label>
+        <input type="password" name="password" id="password" />
+        
+        <i
+          class="fa fa-eye"
+          aria-hidden="true"
+          id="show"
+          onclick="seePassword()"
+        ></i>
+        <p id="pssmessage"></p>
+
+        <label for="cpassword">Conform password</label>
+        <input type="password" name="cpassword" id="cpassword" />
+        <p id="cpassmessage"></p>
+
+        <input type="submit" />
+      </form>
+    </div>
+
+    <script>
+      function seePassword() {
+        var z = document.getElementById("password");
+        if (z.type == "password") {
+          z.type = "text";
+        } else {
+          z.type = "password";
+        }
+      }
+
+      function formValidation() {
+        if (document.myForm.name.value == "") {
+          document.getElementById("nmessage").innerHTML = "Name is required";
+          return false;
+        }
+        if (document.myForm.phone.value == "") {
+          document.getElementById("pmessage").innerHTML = "Phone is required";
+          return false;
+        }
+        if (isNaN(document.myForm.phone.value)) {
+          document.getElementById("pmessage").innerHTML =
+            "Phone number must be numeric";
+          return false;
+        }
+        if (document.myForm.phone.value.length <= 10) {
+          document.getElementById("pmessage").innerHTML =
+            "Phone number must be 10 digits";
+          return false;
+        }
+        if (document.myForm.email.value == "") {
+          document.getElementById("emessage").innerHTML = "Email is required";
+          return false;
+        }
+        if (document.myForm.password.value == "") {
+          document.getElementById("pssmessage").innerHTML =
+            "Password is required";
+          return false;
+        }
+      }
+    </script>
+  </body>
+</html>

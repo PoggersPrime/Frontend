@@ -1,0 +1,37 @@
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+.main {
+  background-color: antiquewhite;
+  padding: 1rem;
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+.main .item {
+  height: 200px;
+  flex: 1 1 300px;
+}
+.main .item:nth-child(odd) {
+  background-color: palevioletred;
+}
+.main .item:nth-child(even) {
+  background-color: violet;
+}
+@media screen and (max-width: 992px) and (min-width: 768px) {
+  .main .item {
+    flex: 1 1 350px;
+  }
+}
+@media screen and (max-width: 768px) {
+  .main .item {
+    flex: 1 1 250px !important;
+  }
+}
+@media screen and (max-width: 600px) {
+  .main .item {
+    flex: 1 1 400px !important;
+  }
+}

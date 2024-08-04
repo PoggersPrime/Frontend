@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Events-Listener</title>
+  </head>
+  <body>
+    <!DOCTYPE html>
+    <html lang="en">
+      <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>Events Example</title>
+        <style>
+          * {
+            margin: 0;
+            box-sizing: border-box;
+          }
+          #loading {
+            background-image: url("./assets/images/loading.gif");
+            width: 100%;
+            height: 100vh;
+            position: fixed;
+            background-size: 100% 100vh;
+            background-repeat: no-repeat;
+          }
+        </style>
+      </head>
+      <body onload="onLoad()">
+        <div id="loading"></div>
+
+        <div id="main">
+          <button onclick="newDate()">click me</button>
+          <p id="date"></p>
+          <p id="jscss" onmouseover="onmouse()" onmouseout="onmouseOut()">
+            Lorem ipsum dolor sit.
+          </p>
+          <br />
+          <button id="onmousedown" onmousedown="onMouseDown()">submit</button>
+          <form action="">
+            <input
+              class="form-control"
+              id="amt"
+              name="vote"
+              style="width: 200px"
+              oninput="onChange1()"
+              placeholder="Enter number of vote"
+            />
+            <span id="total">0</span>
+            <p id="price"></p>
+          </form>
+        </div>
+
+        <script>
+          function newDate() {
+            document.getElementById("date").innerHTML =
+              "This is on click event";
+          }
+          function onmouse() {
+            var x = document.getElementById("jscss");
+            x.style.backgroundColor = "red";
+            x.style.padding = "1rem";
+          }
+
+          function onmouseOut() {
+            var x = document.getElementById("jscss");
+            x.style.backgroundColor = "white";
+            x.style.padding = "0rem";
+          }
+
+          function onMouseDown() {
+            var x = document.getElementById("onmousedown");
+            x.style.backgroundColor = "green";
+            x.style.padding = "0.5rem 1rem";
+            x.style.color = "white";
+          }
+
+          function onChange1() {
+            var amount = 10;
+            var inputAmount = document.getElementById("amt").value;
+            var total = amount * inputAmount;
+            document.getElementById("total").innerHTML = total;
+          }
+          function onLoad() {
+            var loadin = document.getElementById("loading");
+            var main = document.getElementById("main");
+            main.style.display = "none";
+            loadin.style.display = "block";
+            setTimeout(function () {
+              loadin.style.display = "none";
+              main.style.display = "block";
+            }, 2000);
+          }
+        </script>
+      </body>
+    </html>
+  </body>
+</html>

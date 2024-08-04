@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .nav {
+        background-color: #ec4d37;
+      }
+      .nav a {
+        text-decoration: none;
+        padding: 1rem;
+        display: inline-block;
+        color: #fff;
+      }
+
+      .nav .icon {
+        display: none;
+        padding: 1rem;
+      }
+
+      .nav span {
+        font-size: 2rem;
+      }
+
+      @media screen and (max-width: 600px) {
+        .nav a:not(:first-child) {
+          display: none;
+        }
+        .nav a.icon {
+          display: block;
+          position: absolute;
+          top: 0;
+          right: 0;
+        }
+
+        /* responsive  */
+        .nav.responsive {
+          position: relative;
+        }
+        .nav.responsive .icon {
+          position: absolute;
+          top: 0;
+          right: 0;
+          padding: 1rem;
+        }
+        .nav.responsive a {
+          display: block;
+          float: none;
+          /* text-align: center; */
+        }
+      }
+    </style>
+  </head>
+  <body>
+    <nav class="nav" id="navbar">
+      <a href="#"><span>Samaling</span></a>
+      <a href="#">Home</a>
+      <a href="#">Home</a>
+      <a href="#">Home</a>
+      <a href="#">Home</a>
+      <a href="#">Home</a>
+      <a href="#" class="icon" onclick="responsive()">&#9776;</a>
+    </nav>
+
+    <script>
+      function responsive() {
+        var x = document.getElementById("navbar");
+        x.classList.toggle("responsive");
+        /* 
+        if (x.className === "nav") {
+          x.className += " responsive";
+        } else {
+          x.className = "nav";
+        } */
+      }
+    </script>
+  </body>
+</html>
